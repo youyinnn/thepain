@@ -8,6 +8,7 @@
   background-color: #444;
   padding: 10px;
   font-weight: bold;
+  z-index: 100;
 }
 
 #content {
@@ -41,7 +42,7 @@
   height: 30px;
   line-height: 30px;
   cursor: pointer;
-
+  margin-bottom: 10px;
 }
 
 .card>div {
@@ -97,21 +98,23 @@
   width: 90%;
   padding: 10px 0;
   opacity: 0;
-  visibility: hidden;
-  transition: all .2s;
+  transition: 
+    transform .6s ease-in-out,
+    opacity .7s ease-in-out;
+  transform: translateX(100%);
   background-color: whitesmoke;
-
+  
 }
 
 .readinhereshow{
   opacity: 1 !important;
-  visibility: visible !important;
+  transform: translateX(0%) !important;
 }
 
 #closereadinhere{
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: 12px;
+  right: 12px;
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
@@ -135,4 +138,21 @@
   overflow: auto;
   background-color: whitesmoke;
   padding: 20px;
+}
+
+#fakeprogressbarbox{
+  position: absolute;
+  top: 48px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(29, 29, 29);
+  opacity: 0;
+  z-index: 200;
+}
+
+#fakeprogressbar{
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  background-color: tomato;
 }
