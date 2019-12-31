@@ -156,3 +156,14 @@
   width: 0%;
   background-color: tomato;
 }
+
+@media screen and (max-height: 812px) and (max-width: 515px) {
+  .card {
+    height: 60px;
+  }
+
+  .cfooter {
+    height: 60px;
+    line-height: 60px;
+  }
+}
