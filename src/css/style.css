@@ -45,6 +45,10 @@
   margin-bottom: 10px;
 }
 
+.card:hover {
+  transform: scale(1.02);
+}
+
 .card>div {
   float: left;
 }
@@ -101,7 +105,7 @@
   transition: 
     transform .6s ease-in-out,
     opacity .7s ease-in-out;
-  transform: translateX(100%);
+  z-index: -10;
   background-color: whitesmoke;
   
 }
@@ -109,6 +113,7 @@
 .readinhereshow{
   opacity: 1 !important;
   transform: translateX(0%) !important;
+  z-index: 10 !important;
 }
 
 #closereadinhere{
@@ -165,5 +170,9 @@
   .cfooter {
     height: 60px;
     line-height: 60px;
+  }
+
+  #readinhere {
+    width: 100%;
   }
 }

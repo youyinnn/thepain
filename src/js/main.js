@@ -104,10 +104,10 @@ $(function() {
         clearInterval(fakeprogressclear)
         fakeprogressclear = setInterval(() => {
             if (fakeprogress >= 0 && fakeprogress < 40) {
-                fakeprogress += 10
+                fakeprogress += 6
                 $('#fakeprogressbar').css('width', fakeprogress + '%')
             } else if (fakeprogress >= 40 && fakeprogress < 60) {
-                fakeprogress += 7
+                fakeprogress += 3
                 $('#fakeprogressbar').css('width', fakeprogress + '%')
             } else if (fakeprogress >= 60 && fakeprogress < 98) {
                 fakeprogress += 1
