@@ -6,21 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/default.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sindresorhus/github-markdown-css@gh-pages/github-markdown.css" />
     <title>THE | PAIN</title>
 </head>
 <body>
 
-    <div id="header">
+    <div id="header" class="unselectable">
         > Never Forget The Pain
     </div>
     <div id="content">
-
-
+        
+        
     </div>
-    <div id="footer">
+    <div id="footer" class="unselectable">
         @ 2019/12/31
     </div>
     
+    <div id="readinhere">
+        <div id="md" class="markdown-body"></div>
+        <div id="closereadinhere" class="unselectable">&times;</div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="./src/js/yaml.js"></script>
     <script src="./src/js/main.js"></script>

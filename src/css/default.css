@@ -27,17 +27,15 @@
 }
 
 *::-webkit-scrollbar-track {
-  background-color: rgba(216, 221, 228, 0.3);
-  border-radius: .25rem !important;
+  background-color: whitesmoke;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #76808e;
-  border-radius: .25rem !important;
+  background: #008080;
 }
 
 *::-webkit-scrollbar-thumb:window-inactive {
-  background: #d8dde4;
+  background: #019b9b;
 }
 
 * {
@@ -60,6 +58,8 @@ body {
     top: 0;
     bottom: 0;
     margin: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 /* 禁止选中并且兼容 */

@@ -11,14 +11,14 @@
 }
 
 #content {
-    position: absolute;
-    top:50px;
-    bottom: 36px;
-    margin: auto;
-    left: 0;
-    right: 0;
-    width: 80%;
-    padding: 10px 0;
+  position: absolute;
+  top: 50px;
+  bottom: 36px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 80%;
+  padding: 10px 0;
 }
 
 #footer {
@@ -32,4 +32,107 @@
   padding: 3px;
   text-align: center;
   font-weight: bold;
+}
+
+.card {
+  background-color: teal;
+  color: whitesmoke;
+  padding: 10px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+
+}
+
+.card>div {
+  float: left;
+}
+
+.cheader {}
+
+.ccontent {}
+
+.cfooter {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  opacity: 0;
+  background: cadetblue;
+  transform: translate(10%, -10px);
+}
+
+.cfooter div,
+.cfooter a {
+  float: left;
+  margin: 0 5px;
+  padding: 0 3px;
+}
+
+.cfooter * {
+  cursor: pointer;
+}
+
+.cfooter *:hover {
+  background-color: rgb(53, 53, 53);
+}
+
+.cfooter a {
+  text-decoration: none;
+  color: whitesmoke;
+  display: inline-block;
+}
+
+.card:hover .cfooter {
+  transform: translate(0, -10px);
+  opacity: 1;
+}
+
+#readinhere {
+  position: absolute;
+  top: 50px;
+  bottom: 36px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width: 90%;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s;
+  background-color: whitesmoke;
+
+}
+
+.readinhereshow{
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#closereadinhere{
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: black;
+  border: white 1px solid;
+  color: white;
+  width: 23px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+#closereadinhere:hover{
+  background-color: rgb(109, 107, 107);
+}
+
+#closereadinhere:active{
+  transform: translateY(5px);
+}
+
+#md{
+  overflow: auto;
+  background-color: whitesmoke;
+  padding: 20px;
 }
