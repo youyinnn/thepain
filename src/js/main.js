@@ -22,11 +22,11 @@ $(function() {
         }
         let ar = Array.from(mp)
         ar.sort(function(a, b) {
-            return a[0] >= b[0]
+            return a[0] <= b[0] ? 1 : -1
         })
         for (c of ar) {
             let tt = `
-                [${c[1].date}]/[${c[1].intro}]/[${c[1].title}]; [标签：${c[1].tag}]
+                [${c[1].date}]/[${c[1].pos}]/[${c[1].intro}]/[${c[1].title}]/[${c[1].tag}]
             `
             $('#content').append(`
                 <div id="event-card-${c[1].number}" class="card">
@@ -56,10 +56,10 @@ $(function() {
 
             animateCSS(`#event-card-${c[1].number}`, 'fadeIn')
 
-            $(`#${c[1].number}-readinhere`).click(() => {
+            $(`#${c[1].number}-readinhere`).click(function() {
                 startFakeProgress()
                 var settings = {
-                    "url": `https://api.github.com/repos/youyinnn/thepain/issues/${c[1].number}/comments`,
+                    "url": `https://api.github.com/repos/youyinnn/thepain/issues/${$(this).attr('id').split('-')[0]}/comments`,
                     "method": "GET",
                     "timeout": 0,
                     "headers": {
