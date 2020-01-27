@@ -176,3 +176,12 @@
     width: 100%;
   }
 }
+
+.event-year{
+  color: whitesmoke;
+  font-size: 25px;
+  transform: translateX(-30px);
+  margin-bottom: 10px;
+  font-family: cursive;
+  font-weight: bold;
+}

@@ -6,6 +6,7 @@ $(function() {
     var oauth_token = b64.decode(oauth_token_base64)
 
     startFakeProgress()
+    // ANCHOR issues fetch
     $.ajax({
         "url": "https://api.github.com/repos/youyinnn/thepain/issues",
         "method": "GET",
@@ -25,6 +26,12 @@ $(function() {
             return a[0] <= b[0] ? 1 : -1
         })
         for (c of ar) {
+            let yr = c[1].date.split('-')[0]
+            if ($(`#year-${yr}`).length === 0) {
+                $('#content').append(`
+                    <div id="year-${yr}" class="event-year">${yr}</div>
+                `)
+            }
             let tt = `
                 [${c[1].date}]/[${c[1].pos}]/[${c[1].intro}]/[${c[1].title}]/[${c[1].tag}]
             `
@@ -32,26 +39,18 @@ $(function() {
                 <div id="event-card-${c[1].number}" class="card">
                     <div class="cheader">${tt}</div>
                     <div id="${c[1].number}-event-link" class="cfooter unselectable">
-                        <div id="${c[1].number}-readinhere">本站</div>
+                        <div 
+                            id="${c[1].number}-readinhere"
+                            title="${c[1].title}"
+                        >本站</div>
                     </div>
                 </div>
             `)
 
             for (lk of c[1].link) {
-                if (lk.search(/baike/) > 0) {
-                    $(`#${c[1].number}-event-link`).append(`
-                        <a href="${lk}" target="_blank">百科</a>
-                    `)
-                } else
-                if (lk.search(/weibo/) > 0) {
-                    $(`#${c[1].number}-event-link`).append(`
-                        <a href="${lk}" target="_blank">微博</a>
-                    `)
-                } else {
-                    $(`#${c[1].number}-event-link`).append(`
-                        <a href="${lk}" target="_blank">其他</a>
-                    `)
-                }
+                $(`#${c[1].number}-event-link`).append(`
+                    <a href="${lk.link}" target="_blank">${lk.src}</a>
+                `)
             }
 
             animateCSS(`#event-card-${c[1].number}`, 'fadeIn')
@@ -65,11 +64,18 @@ $(function() {
                     "headers": {
                         "Authorization": `Bearer ${oauth_token}`
                     }
-                };
+                }
+                let tt = $(this).attr('title')
 
                 $.ajax(settings).done(function(response) {
+                    let bd
+                    if (response.length !== 0) {
+                        bd = response[0].body
+                    } else {
+                        bd = `本站没有关于【${tt}】的内容，请查看其他的信息源。`
+                    }
                     $('#readinhere').addClass('readinhereshow')
-                    $('#md').html(marked(response[0].body))
+                    $('#md').html(marked(bd))
                     finishFakeProgress()
                 });
             })
