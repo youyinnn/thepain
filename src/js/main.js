@@ -19,11 +19,11 @@ $(function() {
         for (c of response) {
             let content = jsyaml.load(c.body)
             content.number = c.number
-            mp.set(c.title.split('-')[1], content)
+            mp.set(c.title, content)
         }
         let ar = Array.from(mp)
         ar.sort(function(a, b) {
-            return a[0] <= b[0] ? 1 : -1
+            return a[1].date <= b[1].date ? 1 : -1
         })
         for (c of ar) {
             let yr = c[1].date.split('-')[0]
